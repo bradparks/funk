@@ -13,7 +13,10 @@ class Tmp{
 		haxe.Log.trace({
 			var result = 1;
 			var iterator = foldable0.iterator();
-			while ((iterator.hasNext())) result = result + iterator.next();
+			while ((iterator.hasNext())) {
+				haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 19,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldLeft"});
+				result = result + iterator.next();
+			};
 			funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 		},{fileName : "Tmp.hx",lineNumber : 15,className : "Tmp",methodName : "main"});
 		var foldable1 = {
@@ -24,7 +27,10 @@ class Tmp{
 					return {
 						var result = value;
 						var iterator = _e.iterator();
-						while ((iterator.hasNext())) result = func(result,iterator.next());
+						while ((iterator.hasNext())) {
+							haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 19,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldLeft"});
+							result = func(result,iterator.next());
+						};
 						funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 					};
 				};
@@ -34,7 +40,20 @@ class Tmp{
 					return {
 						var result = value;
 						var iterator = _e.iterator();
-						while ((iterator.hasNext())) result = func(result,iterator.next());
+						var reverse = {
+							var p = iterator;
+							var stack = {
+								var stack = [];
+								for (i in p) stack.push(i);
+								stack;
+							};
+							stack.reverse();
+							stack.iterator();
+						};
+						while ((reverse.hasNext())) {
+							haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 32,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldRight"});
+							result = func(result,reverse.next());
+						};
 						funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 					};
 				};
@@ -42,8 +61,8 @@ class Tmp{
 			foldable1;
 		};
 		haxe.Log.trace(foldable1,{fileName : "Tmp.hx",lineNumber : 19,className : "Tmp",methodName : "main"});
-		haxe.Log.trace(foldable1.foldLeft(1,function(a:Int,b:Int) = {
-			return a + b;
+		haxe.Log.trace(foldable1.foldLeft(100,function(a:Int,b:Int) = {
+			return Std.int(a / b);
 		}),{fileName : "Tmp.hx",lineNumber : 20,className : "Tmp",methodName : "main"});
 	};
 

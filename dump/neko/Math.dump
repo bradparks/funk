@@ -1,0 +1,24 @@
+class Math{
+	static public PI((default,null)) : Float;
+
+	static public NaN((default,null)) : Float;
+
+	static public POSITIVE_INFINITY((default,null)) : Float;
+
+	static public NEGATIVE_INFINITY((default,null)) : Float;
+
+	static public floor(method) : v : Float -> Int
+
+	 = function(v:Float) = {
+		return 0;
+	};
+
+	static public ceil(method) : v : Float -> Int
+
+	 = function(v:Float) = {
+		return 0;
+	};
+
+	static __rnd(var) : Unknown<0>;
+
+}

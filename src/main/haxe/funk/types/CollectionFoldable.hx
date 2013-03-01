@@ -2,6 +2,7 @@ package funk.types;
 
 using funk.extensions.Collection;
 using funk.extensions.Foldable;
+using funk.extensions.Iterators;
 using funk.extensions.Option;
 
 abstract CollectionFoldable<T>(Collection<T>) from Collection<T> to Collection<T> {
@@ -24,9 +25,10 @@ abstract CollectionFoldable<T>(Collection<T>) from Collection<T> to Collection<T
     inline public function foldRight<T>(value : T, func : T -> T -> T) : Option<T> {
         var result = value;
 
-        var iterator = this.iterator();
-        while(iterator.hasNext()) {
-            result = func(result, iterator.next());
+        var iterator : Iterators<T> = this.iterator();
+        var reverse = iterator.reverse();
+        while(reverse.hasNext()) {
+            result = func(result, reverse.next());
         }
 
         return Option.fromValue(result);

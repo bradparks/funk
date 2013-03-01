@@ -1,0 +1,29 @@
+private class funk.extensions._Iterators.IteratorsImpl{
+	static _new(inline method) : iterator : Iterator<funk.extensions.Iterators.T> -> Iterator<funk.extensions.Iterators.T>
+
+	 = function(iterator:Iterator<funk.extensions.Iterators.T>) = {
+		return iterator;
+	};
+
+	static public reverse(inline method) : this : Iterator<funk.extensions.Iterators.T> -> Iterator<funk.extensions.Iterators.T>
+
+	 = function(this1:Iterator<funk.extensions.Iterators.T>) = {
+		var p = this1;
+		var stack = {
+			var stack = [];
+			for (i in p) stack.push(i);
+			stack;
+		};
+		stack.reverse();
+		return stack.iterator();
+	};
+
+	static public toArray<T : toArray.T>(inline method) : iterator : Iterator<toArray.T> -> Array<toArray.T>
+
+	 = function(iterator:Iterator<toArray.T>) = {
+		var stack = [];
+		for (i in iterator) stack.push(i);
+		return stack;
+	};
+
+}

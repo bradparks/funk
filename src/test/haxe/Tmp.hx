@@ -17,6 +17,6 @@ class Tmp {
         var foldable1 : Foldable<Int> = collection;
 
         trace(foldable1);
-        trace(foldable1.foldLeft(1, function(a, b) return a + b));
+        trace(foldable1.foldLeft(100, function(a, b) return a + b));
     }
 }

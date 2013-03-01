@@ -10,7 +10,10 @@ private class funk.types._CollectionFoldable.CollectionFoldableImpl{
 	 = function(this1:funk.extensions.Collection<foldLeft.T>,value:foldLeft.T,func:foldLeft.T -> foldLeft.T -> foldLeft.T) = {
 		var result = value;
 		var iterator = this1.iterator();
-		while ((iterator.hasNext())) result = func(result,iterator.next());
+		while ((iterator.hasNext())) {
+			haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 19,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldLeft"});
+			result = func(result,iterator.next());
+		};
 		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 	};
 
@@ -19,7 +22,20 @@ private class funk.types._CollectionFoldable.CollectionFoldableImpl{
 	 = function(this1:funk.extensions.Collection<foldRight.T>,value:foldRight.T,func:foldRight.T -> foldRight.T -> foldRight.T) = {
 		var result = value;
 		var iterator = this1.iterator();
-		while ((iterator.hasNext())) result = func(result,iterator.next());
+		var reverse = {
+			var p = iterator;
+			var stack = {
+				var stack = [];
+				for (i in p) stack.push(i);
+				stack;
+			};
+			stack.reverse();
+			stack.iterator();
+		};
+		while ((reverse.hasNext())) {
+			haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 32,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldRight"});
+			result = func(result,reverse.next());
+		};
 		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 	};
 

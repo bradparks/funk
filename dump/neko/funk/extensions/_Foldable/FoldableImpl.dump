@@ -11,6 +11,12 @@ private class funk.extensions._Foldable.FoldableImpl{
 		return this1.foldLeft(value,func);
 	};
 
+	static public foldRight(inline method) : this : funk.extensions.Foldables<funk.extensions.Foldable.T> -> value : funk.extensions.Foldable.T -> func : (funk.extensions.Foldable.T -> funk.extensions.Foldable.T -> funk.extensions.Foldable.T) -> funk.extensions.Option<funk.extensions.Foldable.T>
+
+	 = function(this1:funk.extensions.Foldables<funk.extensions.Foldable.T>,value:funk.extensions.Foldable.T,func:funk.extensions.Foldable.T -> funk.extensions.Foldable.T -> funk.extensions.Foldable.T) = {
+		return this1.foldRight(value,func);
+	};
+
 	static public fromFoldable<T : fromFoldable.T>(inline method) : collection : funk.types.CollectionFoldable<fromFoldable.T> -> funk.extensions.Foldable<fromFoldable.T>
 
 	 = function(collection:funk.types.CollectionFoldable<fromFoldable.T>) = {
@@ -20,7 +26,10 @@ private class funk.extensions._Foldable.FoldableImpl{
 				return {
 					var result = value;
 					var iterator = _e.iterator();
-					while ((iterator.hasNext())) result = func(result,iterator.next());
+					while ((iterator.hasNext())) {
+						haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 19,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldLeft"});
+						result = func(result,iterator.next());
+					};
 					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 				};
 			};
@@ -30,7 +39,20 @@ private class funk.extensions._Foldable.FoldableImpl{
 				return {
 					var result = value;
 					var iterator = _e.iterator();
-					while ((iterator.hasNext())) result = func(result,iterator.next());
+					var reverse = {
+						var p = iterator;
+						var stack = {
+							var stack = [];
+							for (i in p) stack.push(i);
+							stack;
+						};
+						stack.reverse();
+						stack.iterator();
+					};
+					while ((reverse.hasNext())) {
+						haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 32,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldRight"});
+						result = func(result,reverse.next());
+					};
 					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 				};
 			};
