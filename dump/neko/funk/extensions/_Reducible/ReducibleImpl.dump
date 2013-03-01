@@ -1,0 +1,30 @@
+private class funk.extensions._Reducible.ReducibleImpl{
+	static _new(inline method) : reducibles : funk.extensions.Reducibles<funk.extensions.Reducible.T> -> funk.extensions.Reducibles<funk.extensions.Reducible.T>
+
+	 = function(reducibles:funk.extensions.Reducibles<funk.extensions.Reducible.T>) = {
+		return reducibles;
+	};
+
+	static public reduceLeft(inline method) : this : funk.extensions.Reducibles<funk.extensions.Reducible.T> -> func : (funk.extensions.Reducible.T -> funk.extensions.Reducible.T -> funk.extensions.Reducible.T) -> funk.extensions.Option<funk.extensions.Reducible.T>
+
+	 = function(this1:funk.extensions.Reducibles<funk.extensions.Reducible.T>,func:funk.extensions.Reducible.T -> funk.extensions.Reducible.T -> funk.extensions.Reducible.T) = {
+		return this1.reduceLeft(func);
+	};
+
+	static public reduceRight(inline method) : this : funk.extensions.Reducibles<funk.extensions.Reducible.T> -> func : (funk.extensions.Reducible.T -> funk.extensions.Reducible.T -> funk.extensions.Reducible.T) -> funk.extensions.Option<funk.extensions.Reducible.T>
+
+	 = function(this1:funk.extensions.Reducibles<funk.extensions.Reducible.T>,func:funk.extensions.Reducible.T -> funk.extensions.Reducible.T -> funk.extensions.Reducible.T) = {
+		return this1.reduceRight(func);
+	};
+
+	static public fromReducible<T : fromReducible.T>(inline method) : collection : funk.types.CollectionReducible<fromReducible.T> -> funk.extensions.Reducible<fromReducible.T>
+
+	 = function(collection:funk.types.CollectionReducible<fromReducible.T>) = {
+		return cast {reduceLeft : function(func:fromReducible.T -> fromReducible.T -> fromReducible.T) = {
+			return cast funk.extensions.Options.None;
+		},reduceRight : function(func:fromReducible.T -> fromReducible.T -> fromReducible.T) = {
+			return cast funk.extensions.Options.None;
+		}};
+	};
+
+}

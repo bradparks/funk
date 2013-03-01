@@ -1,0 +1,1 @@
+abstract funk.extensions.Reducible<T : funk.extensions.Reducible.T> {}

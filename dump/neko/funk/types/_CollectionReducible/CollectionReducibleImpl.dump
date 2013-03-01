@@ -1,0 +1,32 @@
+private class funk.types._CollectionReducible.CollectionReducibleImpl{
+	static _new(inline method) : collection : funk.extensions.Collection<funk.types.CollectionReducible.T> -> funk.extensions.Collection<funk.types.CollectionReducible.T>
+
+	 = function(collection:funk.extensions.Collection<funk.types.CollectionReducible.T>) = {
+		return collection;
+	};
+
+	static public reduceLeft<T : reduceLeft.T>(inline method) : this : funk.extensions.Collection<reduceLeft.T> -> func : (reduceLeft.T -> reduceLeft.T -> reduceLeft.T) -> funk.extensions.Option<reduceLeft.T>
+
+	 = function(this1:funk.extensions.Collection<reduceLeft.T>,func:reduceLeft.T -> reduceLeft.T -> reduceLeft.T) = {
+		return funk.extensions.Options.None;
+	};
+
+	static public reduceRight<T : reduceRight.T>(inline method) : this : funk.extensions.Collection<reduceRight.T> -> func : (reduceRight.T -> reduceRight.T -> reduceRight.T) -> funk.extensions.Option<reduceRight.T>
+
+	 = function(this1:funk.extensions.Collection<reduceRight.T>,func:reduceRight.T -> reduceRight.T -> reduceRight.T) = {
+		return funk.extensions.Options.None;
+	};
+
+	static public fromCollection<T : fromCollection.T>(inline method) : collection : funk.extensions.Collection<fromCollection.T> -> funk.types.CollectionReducible<fromCollection.T>
+
+	 = function(collection:funk.extensions.Collection<fromCollection.T>) = {
+		return cast collection;
+	};
+
+	static public toString<T : toString.T>(inline method) : collection : funk.extensions.Collections<toString.T> -> String
+
+	 = function(collection:funk.extensions.Collections<toString.T>) = {
+		return "CollectionReducible(" + Std.string(collection) + ")";
+	};
+
+}

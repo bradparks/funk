@@ -1,7 +1,9 @@
 package funk.extensions;
 
 using funk.extensions.Foldable;
+using funk.extensions.Reducible;
 using funk.types.CollectionFoldable;
+using funk.types.CollectionReducible;
 
 typedef Collections<T> = {> Iterable<T>,
     function size() : Int;
@@ -34,6 +36,13 @@ abstract Collection<T>(Collections<T>) from Collections<T> to Collections<T> {
         var foldable0 : CollectionFoldable<T> = CollectionFoldable.fromCollection(collection);
         var foldable1 : Foldable<T> = foldable0;
         return foldable1;
+    }
+
+    @:to
+    inline public static function toReducible<T>(collection : Collections<T>) : Reducible<T> {
+        var reducible0 : CollectionReducible<T> = CollectionReducible.fromCollection(collection);
+        var reducible1 : Reducible<T> = reducible0;
+        return reducible1;
     }
 
     @:to

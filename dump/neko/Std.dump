@@ -5,11 +5,4 @@ class Std{
 		return new String(__dollar__string(s));
 	};
 
-	static public int(method) : x : Float -> Int
-
-	 = function(x:Float) = {
-		if ((x < 0))return Math.ceil(x));
-		return Math.floor(x);
-	};
-
 }

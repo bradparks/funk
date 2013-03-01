@@ -1,0 +1,49 @@
+private class funk.types._ArrayFoldable.ArrayFoldableImpl{
+	static _new(inline method) : array : Array<funk.types.ArrayFoldable.T> -> Array<funk.types.ArrayFoldable.T>
+
+	 = function(array:Array<funk.types.ArrayFoldable.T>) = {
+		return array;
+	};
+
+	static public foldLeft<T : foldLeft.T>(inline method) : this : Array<foldLeft.T> -> value : foldLeft.T -> func : (foldLeft.T -> foldLeft.T -> foldLeft.T) -> funk.extensions.Option<foldLeft.T>
+
+	 = function(this1:Array<foldLeft.T>,value:foldLeft.T,func:foldLeft.T -> foldLeft.T -> foldLeft.T) = {
+		var result = value;
+		{
+			var _g1 = 0,_g = this1.length;
+			while ((_g1 < _g)) {
+				var i = _g1 ++;
+				result = func(result,this1[i]);
+			};
+		};
+		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+	};
+
+	static public foldRight<T : foldRight.T>(inline method) : this : Array<foldRight.T> -> value : foldRight.T -> func : (foldRight.T -> foldRight.T -> foldRight.T) -> funk.extensions.Option<foldRight.T>
+
+	 = function(this1:Array<foldRight.T>,value:foldRight.T,func:foldRight.T -> foldRight.T -> foldRight.T) = {
+		var result = value;
+		var total = this1.length;
+		{
+			var _g = 0;
+			while ((_g < cast total)) {
+				var i = _g ++;
+				result = func(result,this1[total - 1 - i]);
+			};
+		};
+		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+	};
+
+	static public fromArray<T : fromArray.T>(inline method) : array : Array<fromArray.T> -> funk.types.ArrayFoldable<fromArray.T>
+
+	 = function(array:Array<fromArray.T>) = {
+		return cast array;
+	};
+
+	static public toString<T : toString.T>(inline method) : array : Array<toString.T> -> String
+
+	 = function(array:Array<toString.T>) = {
+		return "ArrayFoldable(" + Std.string(array) + ")";
+	};
+
+}

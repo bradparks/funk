@@ -35,10 +35,7 @@ private class funk.extensions._Collection.CollectionImpl{
 				return {
 					var result = value;
 					var iterator = _e.iterator();
-					while ((iterator.hasNext())) {
-						haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 19,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldLeft"});
-						result = func(result,iterator.next());
-					};
+					while ((iterator.hasNext())) result = func(result,iterator.next());
 					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 				};
 			};
@@ -58,15 +55,24 @@ private class funk.extensions._Collection.CollectionImpl{
 						stack.reverse();
 						stack.iterator();
 					};
-					while ((reverse.hasNext())) {
-						haxe.Log.trace(result,{fileName : "CollectionFoldable.hx",lineNumber : 32,className : "funk.types._CollectionFoldable.CollectionFoldableImpl",methodName : "foldRight"});
-						result = func(result,reverse.next());
-					};
+					while ((reverse.hasNext())) result = func(result,reverse.next());
 					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 				};
 			};
 		}};
 		return foldable1;
+	};
+
+	static public toReducible<T : toReducible.T>(inline method) : collection : funk.extensions.Collections<toReducible.T> -> funk.extensions.Reducible<toReducible.T>
+
+	 = function(collection:funk.extensions.Collections<toReducible.T>) = {
+		var reducible0 = cast collection;
+		var reducible1 = {reduceLeft : function(func:toReducible.T -> toReducible.T -> toReducible.T) = {
+			return cast funk.extensions.Options.None;
+		},reduceRight : function(func:toReducible.T -> toReducible.T -> toReducible.T) = {
+			return cast funk.extensions.Options.None;
+		}};
+		return reducible1;
 	};
 
 	static public toString<T : toString.T>(inline method) : collection : funk.extensions.Collections<toString.T> -> String
