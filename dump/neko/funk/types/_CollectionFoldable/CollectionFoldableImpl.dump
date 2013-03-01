@@ -14,4 +14,25 @@ private class funk.types._CollectionFoldable.CollectionFoldableImpl{
 		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
 	};
 
+	static public foldRight<T : foldRight.T>(inline method) : this : funk.extensions.Collection<foldRight.T> -> value : foldRight.T -> func : (foldRight.T -> foldRight.T -> foldRight.T) -> funk.extensions.Option<foldRight.T>
+
+	 = function(this1:funk.extensions.Collection<foldRight.T>,value:foldRight.T,func:foldRight.T -> foldRight.T -> foldRight.T) = {
+		var result = value;
+		var iterator = this1.iterator();
+		while ((iterator.hasNext())) result = func(result,iterator.next());
+		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+	};
+
+	static public fromCollection<T : fromCollection.T>(inline method) : collection : funk.extensions.Collection<fromCollection.T> -> funk.types.CollectionFoldable<fromCollection.T>
+
+	 = function(collection:funk.extensions.Collection<fromCollection.T>) = {
+		return cast collection;
+	};
+
+	static public toString<T : toString.T>(inline method) : collection : funk.extensions.Collections<toString.T> -> String
+
+	 = function(collection:funk.extensions.Collections<toString.T>) = {
+		return "CollectionFoldable(" + Std.string(collection) + ")";
+	};
+
 }

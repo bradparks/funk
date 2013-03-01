@@ -25,6 +25,34 @@ private class funk.extensions._Collection.CollectionImpl{
 		}};
 	};
 
+	static public toFoldable<T : toFoldable.T>(inline method) : collection : funk.extensions.Collections<toFoldable.T> -> funk.extensions.Foldable<toFoldable.T>
+
+	 = function(collection:funk.extensions.Collections<toFoldable.T>) = {
+		var foldable0 = cast collection;
+		var foldable1 = {foldLeft : {
+			var _e = foldable0;
+			function(value:toFoldable.T,func:toFoldable.T -> toFoldable.T -> toFoldable.T) = {
+				return {
+					var result = value;
+					var iterator = _e.iterator();
+					while ((iterator.hasNext())) result = func(result,iterator.next());
+					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+				};
+			};
+		},foldRight : {
+			var _e = foldable0;
+			function(value:toFoldable.T,func:toFoldable.T -> toFoldable.T -> toFoldable.T) = {
+				return {
+					var result = value;
+					var iterator = _e.iterator();
+					while ((iterator.hasNext())) result = func(result,iterator.next());
+					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+				};
+			};
+		}};
+		return foldable1;
+	};
+
 	static public toString<T : toString.T>(inline method) : collection : funk.extensions.Collections<toString.T> -> String
 
 	 = function(collection:funk.extensions.Collections<toString.T>) = {

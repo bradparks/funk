@@ -1,0 +1,1 @@
+abstract funk.extensions.Foldable<T : funk.extensions.Foldable.T> {}

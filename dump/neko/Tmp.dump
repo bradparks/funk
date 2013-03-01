@@ -9,13 +9,42 @@ class Tmp{
 			}};
 		};
 		var access = collection;
-		var foldable = collection;
+		var foldable0 = collection;
 		haxe.Log.trace({
 			var result = 1;
-			var iterator = foldable.iterator();
+			var iterator = foldable0.iterator();
 			while ((iterator.hasNext())) result = result + iterator.next();
 			funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
-		},{fileName : "Tmp.hx",lineNumber : 14,className : "Tmp",methodName : "main"});
+		},{fileName : "Tmp.hx",lineNumber : 15,className : "Tmp",methodName : "main"});
+		var foldable1 = {
+			var foldable01 = cast collection;
+			var foldable1 = {foldLeft : {
+				var _e = foldable01;
+				function(value:Int,func:Int -> Int -> Int) = {
+					return {
+						var result = value;
+						var iterator = _e.iterator();
+						while ((iterator.hasNext())) result = func(result,iterator.next());
+						funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+					};
+				};
+			},foldRight : {
+				var _e = foldable01;
+				function(value:Int,func:Int -> Int -> Int) = {
+					return {
+						var result = value;
+						var iterator = _e.iterator();
+						while ((iterator.hasNext())) result = func(result,iterator.next());
+						funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+					};
+				};
+			}};
+			foldable1;
+		};
+		haxe.Log.trace(foldable1,{fileName : "Tmp.hx",lineNumber : 19,className : "Tmp",methodName : "main"});
+		haxe.Log.trace(foldable1.foldLeft(1,function(a:Int,b:Int) = {
+			return a + b;
+		}),{fileName : "Tmp.hx",lineNumber : 20,className : "Tmp",methodName : "main"});
 	};
 
 }

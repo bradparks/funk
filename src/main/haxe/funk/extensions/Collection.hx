@@ -1,5 +1,8 @@
 package funk.extensions;
 
+using funk.extensions.Foldable;
+using funk.types.CollectionFoldable;
+
 typedef Collections<T> = {> Iterable<T>,
     function size() : Int;
 };
@@ -24,6 +27,13 @@ abstract Collection<T>(Collections<T>) from Collections<T> to Collections<T> {
             iterator: array.iterator,
             size: function() return array.length
         });
+    }
+
+    @:to
+    inline public static function toFoldable<T>(collection : Collections<T>) : Foldable<T> {
+        var foldable0 : CollectionFoldable<T> = CollectionFoldable.fromCollection(collection);
+        var foldable1 : Foldable<T> = foldable0;
+        return foldable1;
     }
 
     @:to

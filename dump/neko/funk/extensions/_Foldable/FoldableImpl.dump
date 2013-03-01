@@ -1,0 +1,40 @@
+private class funk.extensions._Foldable.FoldableImpl{
+	static _new(inline method) : foldable : funk.extensions.Foldables<funk.extensions.Foldable.T> -> funk.extensions.Foldables<funk.extensions.Foldable.T>
+
+	 = function(foldable:funk.extensions.Foldables<funk.extensions.Foldable.T>) = {
+		return foldable;
+	};
+
+	static public foldLeft(inline method) : this : funk.extensions.Foldables<funk.extensions.Foldable.T> -> value : funk.extensions.Foldable.T -> func : (funk.extensions.Foldable.T -> funk.extensions.Foldable.T -> funk.extensions.Foldable.T) -> funk.extensions.Option<funk.extensions.Foldable.T>
+
+	 = function(this1:funk.extensions.Foldables<funk.extensions.Foldable.T>,value:funk.extensions.Foldable.T,func:funk.extensions.Foldable.T -> funk.extensions.Foldable.T -> funk.extensions.Foldable.T) = {
+		return this1.foldLeft(value,func);
+	};
+
+	static public fromFoldable<T : fromFoldable.T>(inline method) : collection : funk.types.CollectionFoldable<fromFoldable.T> -> funk.extensions.Foldable<fromFoldable.T>
+
+	 = function(collection:funk.types.CollectionFoldable<fromFoldable.T>) = {
+		return cast {foldLeft : {
+			var _e = collection;
+			function(value:fromFoldable.T,func:fromFoldable.T -> fromFoldable.T -> fromFoldable.T) = {
+				return {
+					var result = value;
+					var iterator = _e.iterator();
+					while ((iterator.hasNext())) result = func(result,iterator.next());
+					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+				};
+			};
+		},foldRight : {
+			var _e = collection;
+			function(value:fromFoldable.T,func:fromFoldable.T -> fromFoldable.T -> fromFoldable.T) = {
+				return {
+					var result = value;
+					var iterator = _e.iterator();
+					while ((iterator.hasNext())) result = func(result,iterator.next());
+					funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+				};
+			};
+		}};
+	};
+
+}
