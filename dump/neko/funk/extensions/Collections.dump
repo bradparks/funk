@@ -1,0 +1,1 @@
+type funk.extensions.Collections<T : funk.extensions.Collections.T> = { size : Void -> Int, iterator : Void -> Iterator<funk.extensions.Collections.T> }

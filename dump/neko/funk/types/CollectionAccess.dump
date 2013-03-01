@@ -1,0 +1,1 @@
+abstract funk.types.CollectionAccess<T : funk.types.CollectionAccess.T> {}

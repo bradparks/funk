@@ -1,0 +1,1 @@
+abstract funk.extensions.Collection<T : funk.extensions.Collection.T> {}

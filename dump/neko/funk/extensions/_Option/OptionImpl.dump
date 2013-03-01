@@ -1,0 +1,32 @@
+private class funk.extensions._Option.OptionImpl{
+	static public _new(method) : option : funk.extensions.Options<funk.extensions.Option.T> -> funk.extensions.Options<funk.extensions.Option.T>
+
+	 = function(option:funk.extensions.Options<funk.extensions.Option.T>) = {
+		return option;
+	};
+
+	static public get(inline method) : this : funk.extensions.Options<funk.extensions.Option.T> -> funk.extensions.Option.T
+
+	 = function(this1:funk.extensions.Options<funk.extensions.Option.T>) = {
+		return switch ((this1)) {case Some(option_eSome_0):option_eSome_0,case None:throw "No Such Element"};
+	};
+
+	static public fromValue<T : fromValue.T>(inline method) : value : fromValue.T -> funk.extensions.Option<fromValue.T>
+
+	 = function(value:fromValue.T) = {
+		return funk.extensions._Option.OptionImpl._new(if ((value == null))funk.extensions.Options.None else funk.extensions.Options.Some(value)));
+	};
+
+	static public toValue<T : toValue.T>(inline method) : option : funk.extensions.Options<toValue.T> -> toValue.T
+
+	 = function(option:funk.extensions.Options<toValue.T>) = {
+		return switch ((option)) {case Some(option_eSome_0):option_eSome_0,case None:throw "No Such Element"};
+	};
+
+	static public toString<T : toString.T>(inline method) : option : funk.extensions.Options<toString.T> -> String
+
+	 = function(option:funk.extensions.Options<toString.T>) = {
+		return switch ((option)) {case Some(option_eSome_0):"Some(" + option_eSome_0 + ")",case None:"None"};
+	};
+
+}

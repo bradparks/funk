@@ -1,0 +1,21 @@
+class Tmp{
+	static public main(method) : Void -> Void
+
+	 = function() = {
+		var collection = {
+			var array = [1,2,3];
+			{iterator : array.iterator,size : function() = {
+				return array.length;
+			}};
+		};
+		var access = collection;
+		var foldable = collection;
+		haxe.Log.trace({
+			var result = 1;
+			var iterator = foldable.iterator();
+			while ((iterator.hasNext())) result = result + iterator.next();
+			funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+		},{fileName : "Tmp.hx",lineNumber : 14,className : "Tmp",methodName : "main"});
+	};
+
+}

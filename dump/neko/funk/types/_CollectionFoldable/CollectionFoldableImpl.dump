@@ -1,0 +1,17 @@
+private class funk.types._CollectionFoldable.CollectionFoldableImpl{
+	static _new(inline method) : collection : funk.extensions.Collection<funk.types.CollectionFoldable.T> -> funk.extensions.Collection<funk.types.CollectionFoldable.T>
+
+	 = function(collection:funk.extensions.Collection<funk.types.CollectionFoldable.T>) = {
+		return collection;
+	};
+
+	static public foldLeft<T : foldLeft.T>(inline method) : this : funk.extensions.Collection<foldLeft.T> -> value : foldLeft.T -> func : (foldLeft.T -> foldLeft.T -> foldLeft.T) -> funk.extensions.Option<foldLeft.T>
+
+	 = function(this1:funk.extensions.Collection<foldLeft.T>,value:foldLeft.T,func:foldLeft.T -> foldLeft.T -> foldLeft.T) = {
+		var result = value;
+		var iterator = this1.iterator();
+		while ((iterator.hasNext())) result = func(result,iterator.next());
+		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+	};
+
+}

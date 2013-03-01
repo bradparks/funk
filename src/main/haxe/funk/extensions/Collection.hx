@@ -6,8 +6,24 @@ typedef Collections<T> = {> Iterable<T>,
 
 abstract Collection<T>(Collections<T>) from Collections<T> to Collections<T> {
 
-    public function new(option : Collections<T>) {
-        this = option;
+    inline function new(collection : Collections<T>) {
+        this = collection;
+    }
+
+    inline public function iterator() : Iterator<T> {
+        return this.iterator();
+    }
+
+    inline public function size() : Int {
+        return this.size();
+    }
+
+    @:from
+    inline public static function fromArray<T>(array : Array<T>) : Collection<T> {
+        return new Collection({
+            iterator: array.iterator,
+            size: function() return array.length
+        });
     }
 
     @:to

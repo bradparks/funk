@@ -1,0 +1,1 @@
+abstract funk.extensions.Option<T : funk.extensions.Option.T> {}

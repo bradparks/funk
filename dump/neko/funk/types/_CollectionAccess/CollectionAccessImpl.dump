@@ -1,0 +1,20 @@
+private class funk.types._CollectionAccess.CollectionAccessImpl{
+	static _new(inline method) : collection : funk.extensions.Collection<funk.types.CollectionAccess.T> -> funk.extensions.Collection<funk.types.CollectionAccess.T>
+
+	 = function(collection:funk.extensions.Collection<funk.types.CollectionAccess.T>) = {
+		return collection;
+	};
+
+	static public get(inline method) : this : funk.extensions.Collection<funk.types.CollectionAccess.T> -> index : Int -> funk.extensions.Option<funk.types.CollectionAccess.T>
+
+	 = function(this1:funk.extensions.Collection<funk.types.CollectionAccess.T>,index:Int) = {
+		var result = null;
+		var iterator = this1.iterator();
+		while ((-- index >= -1)) if ((iterator.hasNext())){
+			var value = iterator.next();
+			if ((index == -1))result = value);
+		});
+		return funk.extensions._Option.OptionImpl._new(if ((result == null))funk.extensions.Options.None else funk.extensions.Options.Some(result)));
+	};
+
+}

@@ -1,6 +1,11 @@
 # js debug
--js bin/main.js
--main funk.Funk
+-neko bin/tmp.n
+-main Tmp
 -cp src/main/haxe
+-cp src/test/haxe
 -debug
---js-modern
+-D dump=pretty
+
+--next
+-cmd "cd bin"
+-cmd "neko tmp.n"

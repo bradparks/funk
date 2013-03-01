@@ -1,0 +1,8 @@
+class Std{
+	static public string(method) : s : Dynamic -> String
+
+	 = function(s:Dynamic) = {
+		return new String(__dollar__string(s));
+	};
+
+}

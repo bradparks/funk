@@ -1,0 +1,34 @@
+private class funk.extensions._Collection.CollectionImpl{
+	static _new(inline method) : collection : funk.extensions.Collections<funk.extensions.Collection.T> -> funk.extensions.Collections<funk.extensions.Collection.T>
+
+	 = function(collection:funk.extensions.Collections<funk.extensions.Collection.T>) = {
+		return collection;
+	};
+
+	static public iterator(inline method) : this : funk.extensions.Collections<funk.extensions.Collection.T> -> Iterator<funk.extensions.Collection.T>
+
+	 = function(this1:funk.extensions.Collections<funk.extensions.Collection.T>) = {
+		return this1.iterator();
+	};
+
+	static public size(inline method) : this : funk.extensions.Collections<funk.extensions.Collection.T> -> Int
+
+	 = function(this1:funk.extensions.Collections<funk.extensions.Collection.T>) = {
+		return this1.size();
+	};
+
+	static public fromArray<T : fromArray.T>(inline method) : array : Array<fromArray.T> -> funk.extensions.Collection<fromArray.T>
+
+	 = function(array:Array<fromArray.T>) = {
+		return cast {iterator : array.iterator,size : function() = {
+			return array.length;
+		}};
+	};
+
+	static public toString<T : toString.T>(inline method) : collection : funk.extensions.Collections<toString.T> -> String
+
+	 = function(collection:funk.extensions.Collections<toString.T>) = {
+		return "Collection(" + Std.string(collection) + ")";
+	};
+
+}

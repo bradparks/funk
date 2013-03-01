@@ -1,0 +1,4 @@
+enum funk.extensions.Options<T : funk.extensions.Options.T> {
+	Some : value : funk.extensions.Options.T -> funk.extensions.Options<funk.extensions.Options.T>;
+	None : funk.extensions.Options<funk.extensions.Options.T>;
+}
