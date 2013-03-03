@@ -2,9 +2,11 @@ package ;
 
 using funk.extensions.Collection;
 using funk.extensions.Foldable;
+using funk.extensions.List;
 using funk.types.ArrayFoldable;
 using funk.types.CollectionAccess;
 using funk.types.CollectionFoldable;
+using funk.types.ListFoldable;
 
 class Tmp {
 
@@ -34,5 +36,17 @@ class Tmp {
 
         trace(foldable3);
         trace(foldable3.foldLeft(100, function(a, b) return a + b));
+
+        // List
+
+        var list : List<Int> = [1, 2, 3];
+        var foldable4 : ListFoldable<Int> = list;
+
+        trace(foldable4.foldLeft(1, function(a, b) return a + b));
+
+        var foldable5 : Foldable<Int> = list;
+
+        trace(foldable5);
+        trace(foldable5.foldLeft(100, function(a, b) return a + b));
     }
 }
